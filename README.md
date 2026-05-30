@@ -67,7 +67,26 @@ Future Enhancements :
 
  # Since the application does not create First Admin account automatically, insert an Admin user manually into the users table.
 INSERT INTO users(username,password,role)VALUES('admin','$2a$12$W0mMtf4S8l6F6Q0L8WQ6UuH0n3R6K4YxK6dR8QhR7K8mVwY9fP8sW','ADMIN');
- # username = admin and password = admin@123
+ username = admin and password = admin@123
  
- # after creating first admin we can also create another admin :
- 
+ # After creating first admin we can also create another admin :
+  - Go to authorization: give the admin username and password
+  - Go to bosy section and give json
+  -  eg: {
+           "username":"admin2",
+           "password" : "admin@123"
+         }
+  - The role is set from in user service layer
+
+# Teacher creation by admin
+- same steps admin username n pass
+- json body will be differnet , username should be same
+- eg : {  
+         "username" :" teacher1",
+         "subject":"subject",
+         "user": {
+                    "username":"teacher1",
+                    "password" : "admin@123"
+         }
+       }
+- 
