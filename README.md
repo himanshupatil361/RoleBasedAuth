@@ -1,4 +1,4 @@
-Role-Based Authentication System
+# Role-Based Authentication System
 
 # A secure backend application built using Spring Boot, Spring Security, JWT Authentication, Hibernate, and MySQL. The system implements role-based access control (RBAC) with three user roles: Admin, Teacher, and Student.
 
