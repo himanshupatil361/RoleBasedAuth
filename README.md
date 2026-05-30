@@ -2,7 +2,8 @@ Role-Based Authentication System
 
 # A secure backend application built using Spring Boot, Spring Security, JWT Authentication, Hibernate, and MySQL. The system implements role-based access control (RBAC) with three user roles: Admin, Teacher, and Student.
 
-Features :
+# coding instructions from line 62
+# Features :
  Admin-
     Create, view, update, and delete Teachers
     Create, view, update, and delete Students
@@ -17,7 +18,7 @@ Student-
     View own profile
     Update own password
     
-Technologies Used :
+# Technologies Used :
     Java 17
     Spring Boot
     Spring Security
@@ -25,20 +26,20 @@ Technologies Used :
     Spring Data JPA (Hibernate)
     MySQL
     
-Security Features:
+# Security Features:
     Password encryption using BCrypt
     Role-based authorization
     Protected REST APIs
     Secure password update functionality
 
-Project Structure:
+# Project Structure:
     Controller Layer – Handles API requests
     Service Layer – Business logic
     Repository Layer – Database operations
     Entity Layer – Database models
     Security Layer – Authentication and authorization
 
-Database Design :
+# Database Design :
 User Entity-
     Username
     Password
@@ -51,21 +52,16 @@ Student Entity-
     Student Details
     One-to-One relationship with User
     
-Authentication Flow :
+# Authentication Flow :
    User enters username and password.
    Spring Security authenticates the credentials.
    Password is verified using BCrypt encryption.
    Access is granted based on the assigned role.
    Users can access only the resources permitted for their role.
 
-Future Enhancements :
-   JWT Authentication
-   Password Reset via Email
-
-   ## Coding part :
-  Create the First Admin User
-
- # Since the application does not create First Admin account automatically, insert an Admin user manually into the users table.
+   # Coding part :
+  # Create the First Admin User = Since the application does not create First Admin account automatically, insert an Admin user manually into the users table.
+  
 INSERT INTO users(username,password,role)VALUES('admin','$2a$12$W0mMtf4S8l6F6Q0L8WQ6UuH0n3R6K4YxK6dR8QhR7K8mVwY9fP8sW','ADMIN');
  username = admin and password = admin@123
  
@@ -80,8 +76,8 @@ INSERT INTO users(username,password,role)VALUES('admin','$2a$12$W0mMtf4S8l6F6Q0L
 
 # Teacher creation by admin
 - same steps admin username n pass
-- json body will be differnet , username should be same
-- eg : {  
+- json body will be differnet , username should be same. nested json for user table (for authentication)
+-  create eg : {  
          "username" :" teacher1",
          "subject":"subject",
          "user": {
@@ -89,4 +85,25 @@ INSERT INTO users(username,password,role)VALUES('admin','$2a$12$W0mMtf4S8l6F6Q0L
                     "password" : "admin@123"
          }
        }
+# Teacher change their own pass
+- login username n pass of teacher, use teacher api patch
+-  {  
+         "password" : "give_password"
+   }
 - 
+# Student creation by admin or teacher
+- login username n pass of adminn / teacher
+- -  create eg : {  
+         "username" :" student1",
+         "course":"subject",
+          "age" :"21",
+         "user": {
+                    "username":"student1",
+                    "password" : "student_pass"
+         }
+       }
+# Student change their own pass
+- login username n pass of student, use student api patch
+-  {  
+         "password" : "give_password"
+   }
