@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+// add main admin manually then if want to create another admin use api
 @RestController
-//@RequestMapping("/admins")
+@RequestMapping("/admin")
 public class AdminCreate {
 
     @Autowired
     private UserService userService;
-
-// add main admin manually then if want to create another admin useit
-
 
     @PostMapping("/create-admin")
     public Users createAdmin(@RequestBody Users user) {
