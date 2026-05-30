@@ -1,0 +1,73 @@
+Role-Based Authentication System
+
+# A secure backend application built using Spring Boot, Spring Security, JWT Authentication, Hibernate, and MySQL. The system implements role-based access control (RBAC) with three user roles: Admin, Teacher, and Student.
+
+Features :
+ Admin-
+    Create, view, update, and delete Teachers
+    Create, view, update, and delete Students
+    View all users and their roles
+    
+Teacher-
+    View own profile
+    Update own password
+    Create, view, update, and delete Students
+    
+Student-
+    View own profile
+    Update own password
+    
+Technologies Used :
+    Java 17
+    Spring Boot
+    Spring Security
+    JWT (JSON Web Token)
+    Spring Data JPA (Hibernate)
+    MySQL
+    
+Security Features:
+    Password encryption using BCrypt
+    Role-based authorization
+    Protected REST APIs
+    Secure password update functionality
+
+Project Structure:
+    Controller Layer – Handles API requests
+    Service Layer – Business logic
+    Repository Layer – Database operations
+    Entity Layer – Database models
+    Security Layer – Authentication and authorization
+
+Database Design :
+User Entity-
+    Username
+    Password
+    Role
+Teacher Entity-
+    Teacher Details
+    One-to-One relationship with User
+    
+Student Entity-
+    Student Details
+    One-to-One relationship with User
+    
+Authentication Flow :
+   User enters username and password.
+   Spring Security authenticates the credentials.
+   Password is verified using BCrypt encryption.
+   Access is granted based on the assigned role.
+   Users can access only the resources permitted for their role.
+
+Future Enhancements :
+   JWT Authentication
+   Password Reset via Email
+
+   ## Coding part :
+  Create the First Admin User
+
+ # Since the application does not create First Admin account automatically, insert an Admin user manually into the users table.
+INSERT INTO users(username,password,role)VALUES('admin','$2a$12$W0mMtf4S8l6F6Q0L8WQ6UuH0n3R6K4YxK6dR8QhR7K8mVwY9fP8sW','ADMIN');
+ # username = admin and password = admin@123
+ 
+ # after creating first admin we can also create another admin :
+ 
